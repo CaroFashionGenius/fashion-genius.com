@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Genius - For Fashion Retailers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#161616;--white:#f0f0f0;--accent:#E4FD52;--accent-light:#f0ff8a;--mid:#242424;--muted:#777}
+html{scroll-behavior:smooth}
+body{background:#161616;color:#f0f0f0;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+.hidden{display:none!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(22,22,22,0.95);border-bottom:1px solid rgba(255,255,255,0.05)}
+.logo{text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo-text{display:flex;flex-direction:column;line-height:1.05}
+.logo-text span{font-weight:800;font-size:12px;letter-spacing:2px;color:#fff;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-toggle{display:flex;border:1px solid rgba(255,255,255,0.2);overflow:hidden}
+.lang-btn{background:none;border:none;cursor:pointer;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:#777;padding:0.4rem 0.9rem;text-transform:uppercase}
+.lang-btn.active{background:#E4FD52;color:#161616}
+.nav-cta{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#161616;background:#E4FD52;text-decoration:none;padding:0.55rem 1.3rem;font-weight:700}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:9rem 2rem 4rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 40%,rgba(228,253,82,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-tag{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:#E4FD52;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,5rem);font-weight:700;line-height:1.1;max-width:840px}
+.hero h1 em{font-style:italic;color:#E4FD52}
+.hero-sub{font-size:1.05rem;color:#777;max-width:500px;margin-top:1.6rem}
+.kpis{display:flex;margin-top:4rem;width:100%;max-width:720px;border:1px solid rgba(228,253,82,0.15)}
+.kpi{flex:1;text-align:center;padding:1.8rem 1rem;border-left:1px solid rgba(228,253,82,0.15)}
+.kpi:first-child{border-left:none}
+.kpi-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:#E4FD52;line-height:1}
+.kpi-label{font-size:0.75rem;color:#777;margin-top:0.5rem;line-height:1.5}
+.divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,rgba(228,253,82,0.4),transparent);margin:4rem auto}
+.section{max-width:860px;margin:0 auto;padding:0 2rem}
+.section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:#E4FD52;text-align:center;margin-bottom:0.8rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);text-align:center;line-height:1.25;margin-bottom:2.5rem}
+.video-wrapper{position:relative;width:100%;aspect-ratio:16/9;background:#242424;border:1px solid rgba(228,253,82,0.15);cursor:pointer;overflow:hidden}
+.video-wrapper:hover{border-color:rgba(228,253,82,0.4)}
+.video-wrapper iframe{width:100%;height:100%;border:none}
+.video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem}
+.play-btn{width:72px;height:72px;border-radius:50%;border:2px solid #E4FD52;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.video-wrapper:hover .play-btn{background:#E4FD52}
+.video-caption{font-size:0.8rem;color:#777}
+.cta-section{text-align:center;padding:6rem 2rem}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.2;margin-bottom:1rem}
+.cta-section p{color:#777;font-size:1rem;max-width:420px;margin:0 auto 2.5rem}
+.btn-primary{display:inline-block;background:#E4FD52;color:#161616;font-size:0.8rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;padding:1rem 2.8rem}
+.btn-note{display:block;margin-top:1rem;font-size:0.73rem;color:#777}
+footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.73rem;color:#777;line-height:1.8}
+footer a{color:#777;text-decoration:none}
+footer a:hover{color:#E4FD52}
+@media(max-width:640px){nav{padding:1rem 1.2rem}.nav-cta{display:none}.kpis{flex-direction:column}.kpi{border-left:none;border-top:1px solid rgba(228,253,82,0.12)}.kpi:first-child{border-top:none}footer{flex-direction:column;gap:0.8rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://fashion-genius.com">
+    <svg width="38" height="38" viewBox="0 0 42 42" fill="none">
+      <rect width="42" height="42" rx="9" fill="#E4FD52"/>
+      <path d="M21 10c2.5 0 4 2 2.5 4.5S21 16 21 16" stroke="#161616" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M21 16C17 16 8 21 8 28h26C34 21 25 16 21 16z" stroke="#161616" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="8" y1="28" x2="8" y2="32" stroke="#161616" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="34" y1="28" x2="34" y2="32" stroke="#161616" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="8" y1="32" x2="34" y2="32" stroke="#161616" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text"><span>Fashion</span><span>Genius</span></div>
+  </a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-de">DE</button>
+      <button class="lang-btn" id="btn-en">EN</button>
+    </div>
+    <a class="nav-cta" id="nav-cta" href="https://calendar.app.google/ixxCKWZUc8pWEjjw6" target="_blank">Demo buchen</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-tag" id="hero-tag">Fuer Fashion Retailer im DACH-Raum</p>
+  <h1 id="hero-h1">Weniger Retouren.<br><em>Mehr Conversions.</em><br>Mehr Umsatz.</h1>
+  <p class="hero-sub" id="hero-sub">Virtual Try-On direkt in Ihrem Online-Shop - ohne IT-Aufwand, ohne Investitionsrisiko.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-num">-40%</div><div class="kpi-label" id="kpi1">Retouren durch virtuelle Anprobe</div></div>
+    <div class="kpi"><div class="kpi-num">+23%</div><div class="kpi-label" id="kpi2">Conversion Rate Steigerung</div></div>
+    <div class="kpi"><div class="kpi-num">30s</div><div class="kpi-label" id="kpi3">Time-to-Try-On pro Produkt</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="section">
+  <p class="section-label" id="vid-label">In 60 Sekunden erklaert</p>
+  <h2 class="section-title" id="vid-title">Sehen Sie Fashion Genius in Aktion</h2>
+  <div class="video-wrapper" id="videoWrapper">
+    <div class="video-placeholder" id="videoPlaceholder">
+      <div class="play-btn">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M6 4L18 11L6 18V4Z" fill="#E4FD52"/></svg>
+      </div>
+      <span class="video-caption" id="vid-caption">Demo ansehen - 60 Sekunden</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="cta-section">
+  <h2 id="cta-h2">Ueberzeugt?<br>Buchen Sie Ihre persoenliche Demo.</h2>
+  <p id="cta-p">30 Minuten. Live. Mit konkreten Zahlen fuer Ihren Shop.<br>Kein Pitch - nur echte Resultate.</p>
+  <a class="btn-primary" id="cta-btn" href="https://calendar.app.google/ixxCKWZUc8pWEjjw6" target="_blank">Persoenliche Demo buchen</a>
+  <span class="btn-note" id="cta-note">Kostenlos - Unverbindlich - 30 Min.</span>
+</section>
+
+<footer>
+  <span>2026 Fashion Genius Technology Lab AG<br>Grabenstrasse 2 - 6300 Zug - Switzerland<br>CHE-170.3.051.073-4</span>
+  <span style="text-align:right"><a href="/cdn-cgi/l/email-protection#e692949fa68087958e8f89888183888f9395c885898b"><span class="__cf_email__" data-cfemail="b5c1c7ccf5d3d4c6dddcdadbd2d0dbdcc0c69bd6dad8">[email&#160;protected]</span></a> - <a href="https://fashiongenius.ai">fashiongenius.ai</a></span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var t = {
+  de: {
+    tag: 'Für Fashion Retailer im DACH-Raum',
+    h1: 'Weniger Retouren.<br><em>Mehr Conversions.</em><br>Mehr Umsatz.',
+    sub: 'Virtual Try-On direkt in Ihrem Online-Shop – ohne IT-Aufwand, ohne Investitionsrisiko.',
+    kpi1: 'Retouren durch virtuelle Anprobe',
+    kpi2: 'Conversion Rate Steigerung',
+    kpi3: 'Time-to-Try-On pro Produkt',
+    vidLabel: 'In 60 Sekunden erklärt',
+    vidTitle: 'Sehen Sie Fashion Genius in Aktion',
+    vidCap: 'Demo ansehen — 60 Sekunden',
+    ctaH2: 'Überzeugt?<br>Buchen Sie Ihre persönliche Demo.',
+    ctaP: '30 Minuten. Live. Mit konkreten Zahlen für Ihren Shop.<br>Kein Pitch — nur echte Resultate.',
+    ctaBtn: 'Persönliche Demo buchen',
+    ctaNote: 'Kostenlos · Unverbindlich · 30 Min.',
+    navCta: 'Demo buchen',
+    vid: 'qVPQABsdNDY'
+  },
+  en: {
+    tag: 'For Fashion Retailers in Europe',
+    h1: 'Fewer Returns.<br><em>More Conversions.</em><br>More Revenue.',
+    sub: 'Virtual Try-On directly in your online shop – no IT overhead, no investment risk.',
+    kpi1: 'Return rate reduction via virtual try-on',
+    kpi2: 'Conversion rate increase',
+    kpi3: 'Time-to-Try-On per product',
+    vidLabel: 'Explained in 60 seconds',
+    vidTitle: 'See Fashion Genius in Action',
+    vidCap: 'Watch demo — 60 seconds',
+    ctaH2: 'Convinced?<br>Book your personal demo.',
+    ctaP: '30 minutes. Live. With concrete numbers for your shop.<br>No pitch — just real results.',
+    ctaBtn: 'Book Personal Demo',
+    ctaNote: 'Free · No commitment · 30 min.',
+    navCta: 'Book Demo',
+    vid: 'VpzkHStkaPw'
+  }
+};
+
+var currentLang = 'de';
+
+function setLang(lang) {
+  currentLang = lang;
+  var l = t[lang];
+  document.getElementById('hero-tag').innerHTML = l.tag;
+  document.getElementById('hero-h1').innerHTML = l.h1;
+  document.getElementById('hero-sub').innerHTML = l.sub;
+  document.getElementById('kpi1').innerHTML = l.kpi1;
+  document.getElementById('kpi2').innerHTML = l.kpi2;
+  document.getElementById('kpi3').innerHTML = l.kpi3;
+  document.getElementById('vid-label').innerHTML = l.vidLabel;
+  document.getElementById('vid-title').innerHTML = l.vidTitle;
+  document.getElementById('vid-caption').innerHTML = l.vidCap;
+  document.getElementById('cta-h2').innerHTML = l.ctaH2;
+  document.getElementById('cta-p').innerHTML = l.ctaP;
+  document.getElementById('cta-btn').innerHTML = l.ctaBtn;
+  document.getElementById('cta-note').innerHTML = l.ctaNote;
+  document.getElementById('nav-cta').innerHTML = l.navCta;
+  document.getElementById('btn-de').className = lang === 'de' ? 'lang-btn active' : 'lang-btn';
+  document.getElementById('btn-en').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+  // Reset video player
+  var wrapper = document.getElementById('videoWrapper');
+  var placeholder = document.getElementById('videoPlaceholder');
+  var iframe = wrapper.querySelector('iframe');
+  if (iframe) { wrapper.removeChild(iframe); }
+  placeholder.style.display = 'flex';
+}
+
+document.getElementById('btn-de').onclick = function() { setLang('de'); };
+document.getElementById('btn-en').onclick = function() { setLang('en'); };
+
+document.getElementById('videoWrapper').onclick = function() {
+  var placeholder = document.getElementById('videoPlaceholder');
+  if (placeholder.style.display === 'none') { return; }
+  placeholder.style.display = 'none';
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + t[currentLang].vid + '?autoplay=1&rel=0';
+  iframe.allow = 'autoplay; fullscreen';
+  document.getElementById('videoWrapper').appendChild(iframe);
+};
+</script><script>
+var t = {
+  de: {
+    tag: 'F&#252;r Fashion Retailer im DACH-Raum',
+    h1: 'Weniger Retouren.<br><em>Mehr Conversions.</em><br>Mehr Umsatz.',
+    sub: 'Virtual Try-On direkt in Ihrem Online-Shop &ndash; ohne IT-Aufwand, ohne Investitionsrisiko.',
+    kpi1: 'Retouren durch virtuelle Anprobe',
+    kpi2: 'Conversion Rate Steigerung',
+    kpi3: 'Time-to-Try-On pro Produkt',
+    vidLabel: 'In 60 Sekunden erkl&auml;rt',
+    vidTitle: 'Sehen Sie Fashion Genius in Aktion',
+    vidCap: 'Demo ansehen &mdash; 60 Sekunden',
+    ctaH2: '&#220;berzeugt?<br>Buchen Sie Ihre pers&ouml;nliche Demo.',
+    ctaP: '30 Minuten. Live. Mit konkreten Zahlen f&uuml;r Ihren Shop.<br>Kein Pitch &mdash; nur echte Resultate.',
+    ctaBtn: 'Pers&ouml;nliche Demo buchen',
+    ctaNote: 'Kostenlos &middot; Unverbindlich &middot; 30 Min.',
+    navCta: 'Demo buchen'
+  },
+  en: {
+    tag: 'For Fashion Retailers in Europe',
+    h1: 'Fewer Returns.<br><em>More Conversions.</em><br>More Revenue.',
+    sub: 'Virtual Try-On directly in your online shop &ndash; no IT overhead, no investment risk.',
+    kpi1: 'Return rate reduction via virtual try-on',
+    kpi2: 'Conversion rate increase',
+    kpi3: 'Time-to-Try-On per product',
+    vidLabel: 'Explained in 60 seconds',
+    vidTitle: 'See Fashion Genius in Action',
+    vidCap: 'Watch demo &mdash; 60 seconds',
+    ctaH2: 'Convinced?<br>Book your personal demo.',
+    ctaP: '30 minutes. Live. With concrete numbers for your shop.<br>No pitch &mdash; just real results.',
+    ctaBtn: 'Book Personal Demo',
+    ctaNote: 'Free &middot; No commitment &middot; 30 min.',
+    navCta: 'Book Demo'
+  }
+};
+
+function setLang(lang) {
+  var l = t[lang];
+  document.getElementById('hero-tag').innerHTML = l.tag;
+  document.getElementById('hero-h1').innerHTML = l.h1;
+  document.getElementById('hero-sub').innerHTML = l.sub;
+  document.getElementById('kpi1').innerHTML = l.kpi1;
+  document.getElementById('kpi2').innerHTML = l.kpi2;
+  document.getElementById('kpi3').innerHTML = l.kpi3;
+  document.getElementById('vid-label').innerHTML = l.vidLabel;
+  document.getElementById('vid-title').innerHTML = l.vidTitle;
+  document.getElementById('vid-caption').innerHTML = l.vidCap;
+  document.getElementById('cta-h2').innerHTML = l.ctaH2;
+  document.getElementById('cta-p').innerHTML = l.ctaP;
+  document.getElementById('cta-btn').innerHTML = l.ctaBtn;
+  document.getElementById('cta-note').innerHTML = l.ctaNote;
+  document.getElementById('nav-cta').innerHTML = l.navCta;
+  document.getElementById('btn-de').className = lang === 'de' ? 'lang-btn active' : 'lang-btn';
+  document.getElementById('btn-en').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+}
+
+document.getElementById('btn-de').onclick = function() { setLang('de'); currentLang = 'de'; };
+document.getElementById('btn-en').onclick = function() { setLang('en'); currentLang = 'en'; };
+
+var VIDEO_ID_DE = 'CqmRkLfyCGE';
+var VIDEO_ID_EN = 'ZfxUaLkbTXw';
+var currentLang = 'de';
+document.getElementById('videoWrapper').onclick = function() {
+  if (!VIDEO_ID) { alert('Video-ID nicht gesetzt.'); return; }
+  document.getElementById('videoPlaceholder').style.display = 'none';
+  var iframe = d
