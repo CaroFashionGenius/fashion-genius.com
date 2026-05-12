@@ -159,6 +159,301 @@ footer{padding:38px 0 58px;color:#8f9089;text-align:center}
   nav{position:relative;top:auto;width:92vw;border-radius:22px}
   .logo img{height:46px}
 }
+
+/* FINAL MOBILE OPTIMIZATION */
+@media (max-width: 760px) {
+  body {
+    background-size: auto;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  nav {
+    width: calc(100% - 24px);
+    margin: 12px auto 0;
+    padding: 14px 14px;
+    border-radius: 22px;
+    gap: 12px;
+  }
+
+  .logo img {
+    height: 40px;
+    max-width: 170px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .lang {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .nav-actions .btn.primary {
+    padding: 11px 14px;
+    font-size: 12px;
+    border-radius: 13px;
+  }
+
+  .hero {
+    padding: 42px 0 48px;
+    min-height: auto;
+    gap: 34px;
+  }
+
+  .kicker {
+    font-size: 12px;
+    letter-spacing: .12em;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: clamp(44px, 14vw, 62px);
+    line-height: .9;
+    letter-spacing: -.065em;
+    margin-bottom: 20px;
+  }
+
+  .sub {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    padding: 15px 18px;
+  }
+
+  .badges {
+    gap: 8px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .vto-panel {
+    padding: 14px;
+    border-radius: 24px;
+    width: 100%;
+  }
+
+  .vto-head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-items: stretch;
+  }
+
+  .toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle button {
+    flex: 1;
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
+  .outfit-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .outfit-tabs span {
+    font-size: 12px;
+  }
+
+  .outfit-tabs button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .demo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .reveal {
+    height: 520px;
+    border-radius: 20px;
+  }
+
+  .reveal img {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .reveal-label {
+    font-size: 10px;
+    top: 12px;
+    padding: 8px 11px;
+  }
+
+  .label-before {
+    left: 12px;
+  }
+
+  .label-after {
+    right: 12px;
+  }
+
+  .handle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .drag-note {
+    bottom: 12px;
+    max-width: calc(100% - 28px);
+    text-align: center;
+    font-size: 10px;
+    padding: 10px 13px;
+  }
+
+  .thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .thumb {
+    height: 132px;
+    border-radius: 14px;
+  }
+
+  .thumb small {
+    font-size: 9px;
+    left: 7px;
+    bottom: 6px;
+    max-width: 90%;
+  }
+
+  .proof-foot {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 13px;
+    padding: 14px;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .section h2 {
+    font-size: clamp(34px, 11vw, 48px);
+    letter-spacing: -.055em;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .layers,
+  .cards,
+  .dashboard,
+  .pricing,
+  .contact,
+  .flow,
+  .trust-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .layer,
+  .card,
+  .flowbox,
+  .price,
+  .dash-panel {
+    padding: 22px;
+    min-height: auto;
+  }
+
+  .card h3 {
+    font-size: 32px;
+  }
+
+  .amount {
+    font-size: 36px;
+  }
+
+  .plus {
+    display: none;
+  }
+
+  .chart {
+    height: 140px;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-footer {
+    margin-top: 36px;
+    border-radius: 20px;
+  }
+
+  .trust-row {
+    gap: 14px;
+    padding: 22px;
+  }
+
+  .trust-logos {
+    gap: 8px;
+  }
+
+  .trust-logo {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  footer {
+    font-size: 13px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo img {
+    height: 34px;
+    max-width: 150px;
+  }
+
+  .nav-actions .btn.primary {
+    padding: 10px 11px;
+  }
+
+  .reveal {
+    height: 470px;
+  }
+
+  .thumb {
+    height: 112px;
+  }
+
+  .outfit-tabs button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 </style>
 </head>
 <body>
